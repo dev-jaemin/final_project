@@ -19,9 +19,10 @@ public class main extends JFrame{
 		//main panel 코드
 		JButton recommandbtn = new JButton("추천해드릴게요!");
 		JButton listbtn = new JButton("맛집이 뭐가 있지?");
+		JButton testbtn11 = new JButton("추천 테스트");
 		
-		listbtn.addActionListener(new mainActionListener());
-		recommandbtn.addActionListener(new mainActionListener());
+		listbtn.addActionListener(new mainActionListener(contentPane, mainpanel, listpanel));
+		recommandbtn.addActionListener(new mainActionListener(contentPane, mainpanel, recommandpanel));
 		
 		mainpanel.add(recommandbtn);
 		mainpanel.add(listbtn);
@@ -32,7 +33,7 @@ public class main extends JFrame{
 		
 		//recommand panel 코드
 		
-		
+		recommandpanel.add(testbtn11);
 		
 		
 		//시작화면 기본 설정
