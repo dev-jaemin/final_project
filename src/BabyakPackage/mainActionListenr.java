@@ -18,18 +18,10 @@ class mainActionListener implements ActionListener{
 	}
 	public void actionPerformed(ActionEvent e) {
 		JButton btn = (JButton)e.getSource();
-		if(btn.getText().equals("추천해드릴게요!")) {
-			//Container cp = nowcp.getContentPane();
-			nowcp.remove(nowpanel);
-			nowcp.add(newpanel);
-			newpanel.updateUI();
-		}
-		//else if(btn.getText().equals("맛집이 뭐가 있지?")){
-			//Container cp = getContentPane();
-			//cp.remove(mainpanel);
-			//cp.add(listpanel);
-			//listpanel.updateUI();
-		//}
+		nowcp.remove(nowpanel);
+		nowcp.add(newpanel);
+		newpanel.updateUI();
+		
 		
 	}
 	
