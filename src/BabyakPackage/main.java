@@ -3,11 +3,40 @@ package BabyakPackage;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class main extends JFrame{
 	JPanel mainpanel = new JPanel();
 	JPanel listpanel = new JPanel();
 	JPanel recommandpanel = new JPanel();
+	JPanel listpanel1 = new JPanel();
+	JLabel option =  new JLabel("<검색 조건>");
+	
+	static JLabel priceLabel = new JLabel("가격대");
+	static JCheckBox under5000 = new JCheckBox("5000원 미만");
+	static JCheckBox under7500 = new JCheckBox("5000원 ~ 7500원");
+	static JCheckBox under10000 = new JCheckBox("7500원 ~ 10000원");
+	static JCheckBox under15000 = new JCheckBox("10000원 ~ 15000원");
+	static JCheckBox over15000 = new JCheckBox("15000원 이상");
+
+	static JPanel listpanel2 = new JPanel();
+	static JLabel locationLabel = new JLabel("<위치>");
+	static JCheckBox loc_A = new JCheckBox("정후");
+	static JCheckBox loc_B = new JCheckBox("개운사길");
+	static JCheckBox loc_C = new JCheckBox("참살이길");
+	static JCheckBox loc_D = new JCheckBox("옆살이, 옆옆살이");
+	static JCheckBox loc_E = new JCheckBox("법후");
+	static JCheckBox loc_F = new JCheckBox("제기동");
+	static JCheckBox loc_G = new JCheckBox("학교 안");
+	
+	static JPanel listpanel3 = new JPanel();
+	static JLabel categoryLabel = new JLabel("<종류>");
+	static JCheckBox cat_A = new JCheckBox("양식");
+	static JCheckBox cat_B = new JCheckBox("한식");
+	static JCheckBox cat_C = new JCheckBox("중식");
+	static JCheckBox cat_D = new JCheckBox("일식");
+	static JCheckBox cat_E = new JCheckBox("분식 & 간단한");
+	static JCheckBox cat_F = new JCheckBox("기타 국가");
 	//시작화면 GUI구현
 	public main() {
 		setTitle("밥약해요!");
@@ -29,15 +58,7 @@ public class main extends JFrame{
 		//list panel 코드
 		listpanel.setLayout(new GridLayout(1, 2));
 		
-		JPanel listpanel1 = new JPanel();
-		JLabel option =  new JLabel("<검색 조건>");
 		
-		JLabel priceLabel = new JLabel("가격대");
-		JCheckBox under5000 = new JCheckBox("5000원 미만");
-		JCheckBox under7500 = new JCheckBox("5000원 ~ 7500원");
-		JCheckBox under10000 = new JCheckBox("7500원 ~ 10000원");
-		JCheckBox under15000 = new JCheckBox("10000원 ~ 15000원");
-		JCheckBox over15000 = new JCheckBox("15000원 이상");
 		listpanel1.add(priceLabel);
 		listpanel1.add(under5000);
 		listpanel1.add(under7500);
@@ -45,15 +66,7 @@ public class main extends JFrame{
 		listpanel1.add(under15000);
 		listpanel1.add(over15000);
 		
-		JPanel listpanel2 = new JPanel();
-		JLabel locationLabel = new JLabel("<위치>");
-		JCheckBox loc_A = new JCheckBox("정후");
-		JCheckBox loc_B = new JCheckBox("개운사길");
-		JCheckBox loc_C = new JCheckBox("참살이길");
-		JCheckBox loc_D = new JCheckBox("옆살이, 옆옆살이");
-		JCheckBox loc_E = new JCheckBox("법후");
-		JCheckBox loc_F = new JCheckBox("제기동");
-		JCheckBox loc_G = new JCheckBox("학교 안");
+		
 		listpanel2.add(locationLabel);
 		listpanel2.add(loc_A);
 		listpanel2.add(loc_B);
@@ -63,14 +76,7 @@ public class main extends JFrame{
 		listpanel2.add(loc_F);
 		listpanel2.add(loc_G);
 		
-		JPanel listpanel3 = new JPanel();
-		JLabel categoryLabel = new JLabel("<종류>");
-		JCheckBox cat_A = new JCheckBox("양식");
-		JCheckBox cat_B = new JCheckBox("한식");
-		JCheckBox cat_C = new JCheckBox("중식");
-		JCheckBox cat_D = new JCheckBox("일식");
-		JCheckBox cat_E = new JCheckBox("분식 & 간단한");
-		JCheckBox cat_F = new JCheckBox("기타 국가");
+
 		listpanel3.add(categoryLabel);
 		listpanel3.add(cat_A);
 		listpanel3.add(cat_B);
@@ -162,6 +168,8 @@ public class main extends JFrame{
 	public static void main(String[] args) {
 		//실행 코드 구현
 		//메모장 파일이 없을 경우, 파일을 생성하는 기능 구현
+		
+		ArrayList<restaurantClass> reslist = new ArrayList<>();
 		new main();
 	}
 

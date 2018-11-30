@@ -14,7 +14,6 @@ import java.awt.event.*;
 //파일 입출력을 통해 메모장에 저장하는 기능 구현
 
 public class list extends JFrame {
-	
 	//List GUI구현하기
 	public list() {
 		//setTitle("밥약해요!");
