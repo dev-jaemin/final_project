@@ -10,6 +10,7 @@ public class recommandActionListener implements ItemListener{
 	ArrayList<String> loclist = new ArrayList<>();
 	ArrayList<String> catlist = new ArrayList<>();
 	ArrayList<String> recommandlist = new ArrayList<>();
+	
 	public void itemStateChanged(ItemEvent e) {
 		if(e.getStateChange() == ItemEvent.SELECTED) {
 			if(e.getItem() == main.under5000_)

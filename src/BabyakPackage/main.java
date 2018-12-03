@@ -94,9 +94,16 @@ public class main extends JFrame{
 	static JRadioButton cat_D__ = new JRadioButton("일식");
 	static JRadioButton cat_E__ = new JRadioButton("분식 & 간단한");
 	static JRadioButton cat_F__ = new JRadioButton("기타 국가");
+	static JTextField newResName = new JTextField(10);
+	static JButton addResbtn = new JButton("추가하기");
 	
 	static JTextArea listResult = new JTextArea(10, 20);
 	static JTextField recommandResult = new JTextField(10);
+	
+	static JButton backbtn1 = new JButton("뒤로");
+	static JButton backbtn2 = new JButton("뒤로");
+	static JButton backbtn3 = new JButton("뒤로");
+	
 	//시작화면 GUI구현
 	public main() {
 		setTitle("밥약해요!");
@@ -161,14 +168,11 @@ public class main extends JFrame{
 		listpanel3.add(cat_E);
 		listpanel3.add(cat_F);
 		
-		
-		
 		JButton addRestaurantBtn = new JButton("식당 추가");
 		addRestaurantBtn.addActionListener(new mainActionListener(contentPane, listpanel, newpanel));
 		
-		
-		
 		JList<String> resultList = new JList<String>();
+		backbtn1.addActionListener(new mainActionListener(contentPane, listpanel, mainpanel));
 		
 		listpanel.add(option);
 		listpanel.add(listpanel1);
@@ -177,9 +181,34 @@ public class main extends JFrame{
 		listpanel.add(new JScrollPane(listResult));
 		listpanel.add(addRestaurantBtn);
 		listpanel.add(resultList);
+		listpanel.add(backbtn1);
 		
 		
 		//recommand panel 코드
+		
+		recommandActionListener recommandItemListener = new recommandActionListener();
+		
+		under5000_.addItemListener(recommandItemListener);
+		under7500_.addItemListener(recommandItemListener);
+		under10000_.addItemListener(recommandItemListener);
+		under15000_.addItemListener(recommandItemListener);
+		over15000_.addItemListener(recommandItemListener);
+		
+		loc_A_.addItemListener(recommandItemListener);
+		loc_B_.addItemListener(recommandItemListener);
+		loc_C_.addItemListener(recommandItemListener);
+		loc_D_.addItemListener(recommandItemListener);
+		loc_E_.addItemListener(recommandItemListener);
+		loc_F_.addItemListener(recommandItemListener);
+		loc_G_.addItemListener(recommandItemListener);
+		
+		cat_A_.addItemListener(recommandItemListener);
+		cat_B_.addItemListener(recommandItemListener);
+		cat_C_.addItemListener(recommandItemListener);
+		cat_D_.addItemListener(recommandItemListener);
+		cat_E_.addItemListener(recommandItemListener);
+		cat_F_.addItemListener(recommandItemListener);
+		
 		
 		JLabel option_ =  new JLabel("<추천 조건>");
 		
@@ -210,6 +239,7 @@ public class main extends JFrame{
 		
 		
 		JList<String> resultRecommand = new JList<String>();
+		backbtn2.addActionListener(new mainActionListener(contentPane, recommandpanel, mainpanel));
 		
 		recommandpanel.add(option_);
 		recommandpanel.add(recommandpanel1);
@@ -217,13 +247,41 @@ public class main extends JFrame{
 		recommandpanel.add(recommandpanel3);
 		recommandpanel.add(resultRecommand);
 		recommandpanel.add(recommandResult);
+		recommandpanel.add(backbtn2);
 		
 		//new panel
 		
 		group1.add(under5000__);group1.add(under7500__);group1.add(under10000__);group1.add(under15000__);group1.add(over15000__);
 		group2.add(loc_A__);group2.add(loc_B__);group2.add(loc_C__);group2.add(loc_D__);group2.add(loc_E__);group2.add(loc_F__);group2.add(loc_G__);
 		group3.add(cat_A__);group3.add(cat_B__);group3.add(cat_C__);group3.add(cat_D__);group3.add(cat_E__);group3.add(cat_F__);
+
+		newpanelActionListener newItemListener = new newpanelActionListener();
 		
+		under5000__.addItemListener(newItemListener);
+		under7500__.addItemListener(newItemListener);
+		under10000__.addItemListener(newItemListener);
+		under15000__.addItemListener(newItemListener);
+		over15000__.addItemListener(newItemListener);
+		
+		loc_A__.addItemListener(newItemListener);
+		loc_B__.addItemListener(newItemListener);
+		loc_C__.addItemListener(newItemListener);
+		loc_D__.addItemListener(newItemListener);
+		loc_E__.addItemListener(newItemListener);
+		loc_F__.addItemListener(newItemListener);
+		loc_G__.addItemListener(newItemListener);
+		
+		cat_A__.addItemListener(newItemListener);
+		cat_B__.addItemListener(newItemListener);
+		cat_C__.addItemListener(newItemListener);
+		cat_D__.addItemListener(newItemListener);
+		cat_E__.addItemListener(newItemListener);
+		cat_F__.addItemListener(newItemListener);
+		
+		addResbtn.addActionListener(new listActionListener2());
+		
+		
+		newpanel.add(newResName);
 		newpanel1.add(under5000__);
 		newpanel1.add(under7500__);
 		newpanel1.add(under10000__);
@@ -245,9 +303,13 @@ public class main extends JFrame{
 		newpanel3.add(cat_E__);
 		newpanel3.add(cat_F__);
 		
+		backbtn3.addActionListener(new mainActionListener(contentPane, newpanel, listpanel));
+		
 		newpanel.add(newpanel1);
 		newpanel.add(newpanel2);
 		newpanel.add(newpanel3);
+		newpanel.add(addResbtn);
+		newpanel.add(backbtn3);
 		
 		
 		//시작화면 기본 설정

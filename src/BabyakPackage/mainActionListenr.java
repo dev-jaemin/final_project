@@ -17,12 +17,9 @@ class mainActionListener implements ActionListener{
 		this.nowcp = container;
 	}
 	public void actionPerformed(ActionEvent e) {
-		JButton btn = (JButton)e.getSource();
 		nowcp.remove(nowpanel);
 		nowcp.add(newpanel);
 		newpanel.updateUI();
-		
-		
 	}
 	
 }

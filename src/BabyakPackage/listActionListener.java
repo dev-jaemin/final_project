@@ -9,6 +9,7 @@ public class listActionListener implements ItemListener{
 	ArrayList<String> pricelist = new ArrayList<>();
 	ArrayList<String> loclist = new ArrayList<>();
 	ArrayList<String> catlist = new ArrayList<>();
+	
 	public void itemStateChanged(ItemEvent e) {
 		if(e.getStateChange() == ItemEvent.SELECTED) {
 			if(e.getItem() == main.under5000)
@@ -102,7 +103,8 @@ public class listActionListener implements ItemListener{
 						if(main.reslist.get(k).location.equals(loclist.get(m))) {
 							for(int n=0;n<catlist.size();n++) {
 								if(main.reslist.get(k).category.equals(catlist.get(n))) {
-									main.listResult.append(main.reslist.get(k).name);
+									//main.listResult.append(main.reslist.get(k).name);
+									main.listResult.append(pricelist.get(0));
 								}
 							}
 						}
