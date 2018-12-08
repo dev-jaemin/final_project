@@ -53,6 +53,8 @@ public class newpanelActionListener implements ItemListener{
 				_catlist.remove("e");
 			if(e.getItem() == main.cat_F__)
 				_catlist.remove("f");
+			if(e.getItem() == main.cat_G__)
+				_catlist.remove("g");
 
 
 		}
@@ -95,6 +97,8 @@ public class newpanelActionListener implements ItemListener{
 				_catlist.add("e");
 			if(e.getItem() == main.cat_F__)
 				_catlist.add("f");
+			if(e.getItem() == main.cat_G__)
+				_catlist.add("g");
 
 
 		}

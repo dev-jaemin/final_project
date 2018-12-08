@@ -12,6 +12,7 @@ public class listActionListener implements ItemListener{
 	
 	public void itemStateChanged(ItemEvent e) {
 		if(e.getStateChange() == ItemEvent.SELECTED) {
+			main.listResult.setText("");
 			if(e.getItem() == main.under5000)
 				pricelist.add("a");
 			if(e.getItem() == main.under7500)
@@ -50,6 +51,8 @@ public class listActionListener implements ItemListener{
 				catlist.add("e");
 			if(e.getItem() == main.cat_F)
 				catlist.add("f");
+			if(e.getItem() == main.cat_G)
+				catlist.add("g");
 
 
 		}
@@ -93,6 +96,8 @@ public class listActionListener implements ItemListener{
 				catlist.remove("e");
 			if(e.getItem() == main.cat_F)
 				catlist.remove("f");
+			if(e.getItem() == main.cat_G)
+				catlist.remove("g");
 
 
 		}

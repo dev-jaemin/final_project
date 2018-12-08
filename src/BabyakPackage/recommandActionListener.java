@@ -51,6 +51,8 @@ public class recommandActionListener implements ItemListener, ActionListener{
 				catlist.add("e");
 			if(e.getItem() == main.cat_F_)
 				catlist.add("f");
+			if(e.getItem() == main.cat_G_)
+				catlist.add("g");
 		}
 		
 		if(e.getStateChange() == ItemEvent.DESELECTED) {
@@ -93,6 +95,8 @@ public class recommandActionListener implements ItemListener, ActionListener{
 				catlist.remove("e");
 			if(e.getItem() == main.cat_F_)
 				catlist.remove("f");
+			if(e.getItem() == main.cat_G_)
+				catlist.remove("g");
 		}
 		
 		
@@ -117,9 +121,12 @@ public class recommandActionListener implements ItemListener, ActionListener{
 				}
 			}
 		}
-		
+		try {
 		String recommandResName = recommandlist.get((int)(Math.random()*recommandlist.size()));
 		main.recommandResult.setText(recommandResName);
+		} catch(IndexOutOfBoundsException e) {
+			JOptionPane.showMessageDialog(null, "조건에 맞는 식당 데이터가 없거나, 조건을 다시 확인해 주십시오", "식당 추천", JOptionPane.ERROR_MESSAGE);
+		}
 		
 	}
 }

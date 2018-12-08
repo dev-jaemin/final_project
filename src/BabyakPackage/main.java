@@ -26,12 +26,12 @@ public class main extends JFrame{
 
 	JPanel listpanel2 = new JPanel();
 	static JLabel locationLabel = new JLabel("<위치>");
-	static JCheckBox loc_A = new JCheckBox("정후");
-	static JCheckBox loc_B = new JCheckBox("개운사길");
+	static JCheckBox loc_A = new JCheckBox("정후, 개운사길");
+	static JCheckBox loc_B = new JCheckBox("정문");
 	static JCheckBox loc_C = new JCheckBox("참살이길");
 	static JCheckBox loc_D = new JCheckBox("옆살이, 옆옆살이");
 	static JCheckBox loc_E = new JCheckBox("법후");
-	static JCheckBox loc_F = new JCheckBox("제기동");
+	static JCheckBox loc_F = new JCheckBox("오거리, 제기동");
 	static JCheckBox loc_G = new JCheckBox("학교 안");
 
 	JPanel listpanel3 = new JPanel();
@@ -41,8 +41,9 @@ public class main extends JFrame{
 	static JCheckBox cat_C = new JCheckBox("중식");
 	static JCheckBox cat_D = new JCheckBox("일식");
 	static JCheckBox cat_E = new JCheckBox("분식 & 간단한");
-	static JCheckBox cat_F = new JCheckBox("기타 국가");
-	
+	static JCheckBox cat_F = new JCheckBox("패스트푸드");
+	static JCheckBox cat_G = new JCheckBox("기타 국가");
+
 	static JTextArea listResult = new JTextArea(10, 20);
 
 	JPanel recommandpanel1 = new JPanel();
@@ -55,12 +56,12 @@ public class main extends JFrame{
 
 	JPanel recommandpanel2 = new JPanel();
 	JLabel locationLabel_ = new JLabel("<위치>");
-	static JCheckBox loc_A_ = new JCheckBox("정후");
-	static JCheckBox loc_B_ = new JCheckBox("개운사길");
+	static JCheckBox loc_A_ = new JCheckBox("정후, 개운사길");
+	static JCheckBox loc_B_ = new JCheckBox("정문");
 	static JCheckBox loc_C_ = new JCheckBox("참살이길");
 	static JCheckBox loc_D_ = new JCheckBox("옆살이, 옆옆살이");
 	static JCheckBox loc_E_ = new JCheckBox("법후");
-	static JCheckBox loc_F_ = new JCheckBox("제기동");
+	static JCheckBox loc_F_ = new JCheckBox("오거리, 제기동");
 	static JCheckBox loc_G_ = new JCheckBox("학교 안");
 
 	JPanel recommandpanel3 = new JPanel();
@@ -70,8 +71,9 @@ public class main extends JFrame{
 	static JCheckBox cat_C_ = new JCheckBox("중식");
 	static JCheckBox cat_D_ = new JCheckBox("일식");
 	static JCheckBox cat_E_ = new JCheckBox("분식 & 간단한");
-	static JCheckBox cat_F_ = new JCheckBox("기타 국가");
-	
+	static JCheckBox cat_F_ = new JCheckBox("패스트푸드");
+	static JCheckBox cat_G_ = new JCheckBox("기타 국가");
+
 	static JButton getRecommandbtn = new JButton("추천 받기");
 	static JTextField recommandResult = new JTextField(10);
 
@@ -85,12 +87,12 @@ public class main extends JFrame{
 
 	JPanel newpanel2 = new JPanel();
 	ButtonGroup group2 = new ButtonGroup();
-	static JRadioButton loc_A__ = new JRadioButton("정후");
-	static JRadioButton loc_B__ = new JRadioButton("개운사길");
+	static JRadioButton loc_A__ = new JRadioButton("정후, 개운사길");
+	static JRadioButton loc_B__ = new JRadioButton("정문");
 	static JRadioButton loc_C__ = new JRadioButton("참살이길");
 	static JRadioButton loc_D__ = new JRadioButton("옆살이, 옆옆살이");
 	static JRadioButton loc_E__ = new JRadioButton("법후");
-	static JRadioButton loc_F__ = new JRadioButton("제기동");
+	static JRadioButton loc_F__ = new JRadioButton("오거리, 제기동");
 	static JRadioButton loc_G__ = new JRadioButton("학교 안");
 
 	JPanel newpanel3 = new JPanel();
@@ -100,7 +102,8 @@ public class main extends JFrame{
 	static JRadioButton cat_C__ = new JRadioButton("중식");
 	static JRadioButton cat_D__ = new JRadioButton("일식");
 	static JRadioButton cat_E__ = new JRadioButton("분식 & 간단한");
-	static JRadioButton cat_F__ = new JRadioButton("기타 국가");
+	static JRadioButton cat_F__ = new JRadioButton("패스트푸드");
+	static JRadioButton cat_G__ = new JRadioButton("기타 국가");
 	static JTextField newResName = new JTextField(10);
 	static JButton addResbtn = new JButton("추가하기");
 
@@ -164,6 +167,7 @@ public class main extends JFrame{
 		cat_D.addItemListener(boxItemListener);
 		cat_E.addItemListener(boxItemListener);
 		cat_F.addItemListener(boxItemListener);
+		cat_G.addItemListener(boxItemListener);
 		listpanel3.add(categoryLabel);
 		listpanel3.add(cat_A);
 		listpanel3.add(cat_B);
@@ -171,6 +175,7 @@ public class main extends JFrame{
 		listpanel3.add(cat_D);
 		listpanel3.add(cat_E);
 		listpanel3.add(cat_F);
+		listpanel3.add(cat_G);
 
 		JButton addRestaurantBtn = new JButton("식당 추가");
 		addRestaurantBtn.addActionListener(new mainActionListener(contentPane, listpanel, newpanel));
@@ -212,6 +217,7 @@ public class main extends JFrame{
 		cat_D_.addItemListener(recommandItemListener);
 		cat_E_.addItemListener(recommandItemListener);
 		cat_F_.addItemListener(recommandItemListener);
+		cat_G_.addItemListener(recommandItemListener);
 
 		getRecommandbtn.addActionListener(recommandItemListener);
 		JLabel option_ =  new JLabel("<추천 조건>");
@@ -240,6 +246,7 @@ public class main extends JFrame{
 		recommandpanel3.add(cat_D_);
 		recommandpanel3.add(cat_E_);
 		recommandpanel3.add(cat_F_);
+		recommandpanel3.add(cat_G_);
 
 
 		JList<String> resultRecommand = new JList<String>();
@@ -258,7 +265,7 @@ public class main extends JFrame{
 
 		group1.add(under5000__);group1.add(under7500__);group1.add(under10000__);group1.add(under15000__);group1.add(over15000__);
 		group2.add(loc_A__);group2.add(loc_B__);group2.add(loc_C__);group2.add(loc_D__);group2.add(loc_E__);group2.add(loc_F__);group2.add(loc_G__);
-		group3.add(cat_A__);group3.add(cat_B__);group3.add(cat_C__);group3.add(cat_D__);group3.add(cat_E__);group3.add(cat_F__);
+		group3.add(cat_A__);group3.add(cat_B__);group3.add(cat_C__);group3.add(cat_D__);group3.add(cat_E__);group3.add(cat_F__);group3.add(cat_G__);
 
 		newpanelActionListener newItemListener = new newpanelActionListener();
 
@@ -282,6 +289,7 @@ public class main extends JFrame{
 		cat_D__.addItemListener(newItemListener);
 		cat_E__.addItemListener(newItemListener);
 		cat_F__.addItemListener(newItemListener);
+		cat_G__.addItemListener(newItemListener);
 
 		addResbtn.addActionListener(new listActionListener2());
 
@@ -307,6 +315,7 @@ public class main extends JFrame{
 		newpanel3.add(cat_D__);
 		newpanel3.add(cat_E__);
 		newpanel3.add(cat_F__);
+		newpanel3.add(cat_G__);
 
 		backbtn3.addActionListener(new mainActionListener(contentPane, newpanel, listpanel));
 
@@ -335,7 +344,22 @@ public class main extends JFrame{
 				reslist.add(res);
 			}
 		} catch (FileNotFoundException e) {
-			System.out.println("파일을 읽어오는 도중에 오류가 발생했습니다.");
+			System.out.println("파일을 인식할 수 없습니다.");
+			FileWriter fout;
+			try {
+				fout = new FileWriter("data.txt", true);
+				fout.write("고른햇살 a a e\r\n" + "이공김밥 a f e\r\n" + "이세돈까스 c a d\r\n" + "고래돈까스 c b d\r\n" + "탄 b a d\r\n" + "토담 b a b\r\n" + "충만치킨 c c f\r\n" + "버거킹 c g f\r\n" + "버거킹 c f f\r\n" + "맘스터치 b g f\r\n" + "멘부리 b a d\r\n" + "미스터국밥 b d b\r\n" + "큰맘할매순대국 b f b\r\n" + "모이리따 d c a\r\n" + "정상파스타 b a a\r\n" + "마카나이 c d d\r\n" + "스시토로 d a d\r\n" + "용초수 b a c\r\n" + "언니네반점 b a c\r\n" + 	"전설의짬뽕 b c c\r\n");
+				fout.close();
+				Scanner scanner = new Scanner(file);
+				while(scanner.hasNext()) {
+					restaurantClass res = new restaurantClass(scanner.next(), scanner.next(), scanner.next(), scanner.next());
+					reslist.add(res);
+				}
+
+			} catch (IOException e1) {
+				System.out.println("파일 입출력 에러");
+			}
+
 		}
 		new main();
 	}
