@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
-public class recommandActionListener implements ItemListener{
+public class recommandActionListener implements ItemListener, ActionListener{
 	ArrayList<String> pricelist = new ArrayList<>();
 	ArrayList<String> loclist = new ArrayList<>();
 	ArrayList<String> catlist = new ArrayList<>();
@@ -54,6 +54,7 @@ public class recommandActionListener implements ItemListener{
 		}
 		
 		if(e.getStateChange() == ItemEvent.DESELECTED) {
+			main.recommandResult.setText("");
 			if(e.getItem() == main.under5000_)
 				pricelist.remove("a");
 			if(e.getItem() == main.under7500_)
@@ -94,6 +95,13 @@ public class recommandActionListener implements ItemListener{
 				catlist.remove("f");
 		}
 		
+		
+
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent event) {
+		recommandlist.clear();
 		for(int k=0;k<main.reslist.size();k++) {
 			for(int l=0;l<pricelist.size();l++) {
 				if(main.reslist.get(k).price.equals(pricelist.get(l))) {
@@ -112,6 +120,6 @@ public class recommandActionListener implements ItemListener{
 		
 		String recommandResName = recommandlist.get((int)(Math.random()*recommandlist.size()));
 		main.recommandResult.setText(recommandResName);
-
+		
 	}
 }

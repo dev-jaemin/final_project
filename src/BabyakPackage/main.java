@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.io.*;
+import java.util.Scanner;
 
 public class main extends JFrame{
 	static ArrayList<restaurantClass> reslist = new ArrayList<>();
@@ -41,6 +42,8 @@ public class main extends JFrame{
 	static JCheckBox cat_D = new JCheckBox("일식");
 	static JCheckBox cat_E = new JCheckBox("분식 & 간단한");
 	static JCheckBox cat_F = new JCheckBox("기타 국가");
+	
+	static JTextArea listResult = new JTextArea(10, 20);
 
 	JPanel recommandpanel1 = new JPanel();
 	JLabel priceLabel_ = new JLabel("<가격대>");
@@ -68,6 +71,9 @@ public class main extends JFrame{
 	static JCheckBox cat_D_ = new JCheckBox("일식");
 	static JCheckBox cat_E_ = new JCheckBox("분식 & 간단한");
 	static JCheckBox cat_F_ = new JCheckBox("기타 국가");
+	
+	static JButton getRecommandbtn = new JButton("추천 받기");
+	static JTextField recommandResult = new JTextField(10);
 
 	JPanel newpanel1 = new JPanel();
 	ButtonGroup group1 = new ButtonGroup();
@@ -97,9 +103,6 @@ public class main extends JFrame{
 	static JRadioButton cat_F__ = new JRadioButton("기타 국가");
 	static JTextField newResName = new JTextField(10);
 	static JButton addResbtn = new JButton("추가하기");
-
-	static JTextArea listResult = new JTextArea(10, 20);
-	static JTextField recommandResult = new JTextField(10);
 
 	static JButton backbtn1 = new JButton("뒤로");
 	static JButton backbtn2 = new JButton("뒤로");
@@ -210,7 +213,7 @@ public class main extends JFrame{
 		cat_E_.addItemListener(recommandItemListener);
 		cat_F_.addItemListener(recommandItemListener);
 
-
+		getRecommandbtn.addActionListener(recommandItemListener);
 		JLabel option_ =  new JLabel("<추천 조건>");
 
 		recommandpanel1.add(priceLabel_);
@@ -248,6 +251,7 @@ public class main extends JFrame{
 		recommandpanel.add(recommandpanel3);
 		recommandpanel.add(resultRecommand);
 		recommandpanel.add(recommandResult);
+		recommandpanel.add(getRecommandbtn);
 		recommandpanel.add(backbtn2);
 
 		//new panel
@@ -323,43 +327,16 @@ public class main extends JFrame{
 	public static void main(String[] args) {
 		//실행 코드 구현
 		//메모장 파일이 없을 경우, 파일을 생성하는 기능 구현
-		String path = "data.txt";
-
-		byte[] data = null;
-		String read_string = null;
-		InputStream in = null;
-
-			try {
-				in = new FileInputStream(path);
-				data = new byte[in.available()];
-				in.read(data);
-				System.out.println("파일 읽기 성공");
-			} catch(FileNotFoundException e) {
-				System.out.println("경로를 못찾게쒀");
+		File file = new File("data.txt");
+		try {
+			Scanner scanner = new Scanner(file);
+			while(scanner.hasNext()) {
+				restaurantClass res = new restaurantClass(scanner.next(), scanner.next(), scanner.next(), scanner.next());
+				reslist.add(res);
 			}
-			catch (IOException e) {
-				System.out.println("파일 읽기 실패");
-			} catch (Exception e) {
-				System.out.println("알 수 없는 에러");
-			} finally {
-				if(in != null) {
-					try {
-						in.close();
-					} catch (IOException e) {
-						System.out.println("파일 닫기 실패");
-					}
-				}
-			}
-			
-			if(data != null) {
-				try {
-					read_string = new String(data, "utf-8");
-					System.out.println(read_string);
-				} catch (UnsupportedEncodingException e) {
-					System.out.println("encoding 지정 에러");
-				}
-			}
-		
+		} catch (FileNotFoundException e) {
+			System.out.println("파일을 읽어오는 도중에 오류가 발생했습니다.");
+		}
 		new main();
 	}
 

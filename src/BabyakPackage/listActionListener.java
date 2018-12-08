@@ -54,6 +54,7 @@ public class listActionListener implements ItemListener{
 
 		}
 		if(e.getStateChange() == ItemEvent.DESELECTED) {
+			main.listResult.setText("");
 			if(e.getItem() == main.under5000)
 				pricelist.remove("a");
 			if(e.getItem() == main.under7500)
@@ -103,8 +104,7 @@ public class listActionListener implements ItemListener{
 						if(main.reslist.get(k).location.equals(loclist.get(m))) {
 							for(int n=0;n<catlist.size();n++) {
 								if(main.reslist.get(k).category.equals(catlist.get(n))) {
-									//main.listResult.append(main.reslist.get(k).name);
-									main.listResult.append(pricelist.get(0));
+									main.listResult.append(main.reslist.get(k).name+"\n");
 								}
 							}
 						}
