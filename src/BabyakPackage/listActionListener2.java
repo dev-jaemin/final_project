@@ -2,7 +2,6 @@ package BabyakPackage;
 
 import javax.swing.*;
 import java.awt.event.*;
-import java.awt.*;
 import java.io.*;
 
 public class listActionListener2 implements ActionListener {

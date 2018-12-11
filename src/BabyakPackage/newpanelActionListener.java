@@ -1,7 +1,5 @@
 package BabyakPackage;
 
-import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
@@ -39,7 +37,7 @@ public class newpanelActionListener implements ItemListener{
 			if(e.getItem() == main.loc_F__)
 				_loclist.remove("f");
 			if(e.getItem() == main.loc_G__)
-				_loclist.remove("e");
+				_loclist.remove("g");
 
 			if(e.getItem() == main.cat_A__)
 				_catlist.remove("a");
@@ -83,7 +81,7 @@ public class newpanelActionListener implements ItemListener{
 			if(e.getItem() == main.loc_F__)
 				_loclist.add("f");
 			if(e.getItem() == main.loc_G__)
-				_loclist.add("e");
+				_loclist.add("g");
 
 			if(e.getItem() == main.cat_A__)
 				_catlist.add("a");

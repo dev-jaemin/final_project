@@ -4,9 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-
-import javax.swing.JButton;
-
 class mainActionListener implements ActionListener{
 	Container nowcp;
 	JPanel nowpanel;

@@ -2,7 +2,6 @@ package BabyakPackage;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.util.ArrayList;
 import java.io.*;
 import java.util.Scanner;
@@ -10,21 +9,25 @@ import java.util.Scanner;
 public class main extends JFrame{
 	static ArrayList<restaurantClass> reslist = new ArrayList<>();
 
-	JPanel mainpanel = new JPanel();
-	JPanel listpanel = new JPanel();
-	JPanel recommandpanel = new JPanel();
-	JPanel newpanel = new JPanel();
+	JPanel mainpanel = new Mypanel1();
+	JPanel listpanel = new Mypanel2();
+	JPanel recommandpanel = new Mypanel2();
+	JPanel newpanel = new Mypanel2();
 	JLabel option =  new JLabel("<검색 조건>");
+	
+	static Font font = new Font("HY엽서M", Font.PLAIN, 18);
+	
+	JPanel mainpanel1 = new Mypanel3();
 
-	JPanel listpanel1 = new JPanel();
-	static JLabel priceLabel = new JLabel("가격대");
+	JPanel listpanel1 = new Mypanel3();
+	static JLabel priceLabel = new JLabel("<가격대>");
 	static JCheckBox under5000 = new JCheckBox("5000원 미만");
 	static JCheckBox under7500 = new JCheckBox("5000원 ~ 7500원");
 	static JCheckBox under10000 = new JCheckBox("7500원 ~ 10000원");
 	static JCheckBox under15000 = new JCheckBox("10000원 ~ 15000원");
 	static JCheckBox over15000 = new JCheckBox("15000원 이상");
 
-	JPanel listpanel2 = new JPanel();
+	JPanel listpanel2 = new Mypanel3();
 	static JLabel locationLabel = new JLabel("<위치>");
 	static JCheckBox loc_A = new JCheckBox("정후, 개운사길");
 	static JCheckBox loc_B = new JCheckBox("정문");
@@ -34,8 +37,8 @@ public class main extends JFrame{
 	static JCheckBox loc_F = new JCheckBox("오거리, 제기동");
 	static JCheckBox loc_G = new JCheckBox("학교 안");
 
-	JPanel listpanel3 = new JPanel();
-	static JLabel categoryLabel = new JLabel("<종류>");
+	JPanel listpanel3 = new Mypanel3();
+	static JLabel categoryLabel = new JLabel("  <종류>  ");
 	static JCheckBox cat_A = new JCheckBox("양식");
 	static JCheckBox cat_B = new JCheckBox("한식");
 	static JCheckBox cat_C = new JCheckBox("중식");
@@ -46,7 +49,8 @@ public class main extends JFrame{
 
 	static JTextArea listResult = new JTextArea(10, 20);
 
-	JPanel recommandpanel1 = new JPanel();
+	JPanel recommandpanel0 = new Mypanel3();
+	JPanel recommandpanel1 = new Mypanel3();
 	JLabel priceLabel_ = new JLabel("<가격대>");
 	static JCheckBox under5000_ = new JCheckBox("5000원 미만");
 	static JCheckBox under7500_ = new JCheckBox("5000원 ~ 7500원");
@@ -54,7 +58,7 @@ public class main extends JFrame{
 	static JCheckBox under15000_ = new JCheckBox("10000원 ~ 15000원");
 	static JCheckBox over15000_ = new JCheckBox("15000원 이상");
 
-	JPanel recommandpanel2 = new JPanel();
+	JPanel recommandpanel2 = new Mypanel3();
 	JLabel locationLabel_ = new JLabel("<위치>");
 	static JCheckBox loc_A_ = new JCheckBox("정후, 개운사길");
 	static JCheckBox loc_B_ = new JCheckBox("정문");
@@ -64,7 +68,7 @@ public class main extends JFrame{
 	static JCheckBox loc_F_ = new JCheckBox("오거리, 제기동");
 	static JCheckBox loc_G_ = new JCheckBox("학교 안");
 
-	JPanel recommandpanel3 = new JPanel();
+	JPanel recommandpanel3 = new Mypanel3();
 	JLabel categoryLabel_ = new JLabel("<종류>");
 	static JCheckBox cat_A_ = new JCheckBox("양식");
 	static JCheckBox cat_B_ = new JCheckBox("한식");
@@ -73,19 +77,23 @@ public class main extends JFrame{
 	static JCheckBox cat_E_ = new JCheckBox("분식 & 간단한");
 	static JCheckBox cat_F_ = new JCheckBox("패스트푸드");
 	static JCheckBox cat_G_ = new JCheckBox("기타 국가");
+	
+	JPanel recommandpanel4 = new Mypanel3();
 
 	static JButton getRecommandbtn = new JButton("추천 받기");
 	static JTextField recommandResult = new JTextField(10);
 
-	JPanel newpanel1 = new JPanel();
+	JPanel newpanel1 = new Mypanel3();
 	ButtonGroup group1 = new ButtonGroup();
+	JLabel priceLabel__ = new JLabel("<가격>");
 	static JRadioButton under5000__ = new JRadioButton("5000원 미만");
 	static JRadioButton under7500__ = new JRadioButton("5000원 ~ 7500원");
 	static JRadioButton under10000__ = new JRadioButton("7500원 ~ 10000원");
 	static JRadioButton under15000__ = new JRadioButton("10000원 ~ 15000원");
 	static JRadioButton over15000__ = new JRadioButton("15000원 이상");
 
-	JPanel newpanel2 = new JPanel();
+	JPanel newpanel2 = new Mypanel3();
+	JLabel locationLabel__ = new JLabel("<위치>");
 	ButtonGroup group2 = new ButtonGroup();
 	static JRadioButton loc_A__ = new JRadioButton("정후, 개운사길");
 	static JRadioButton loc_B__ = new JRadioButton("정문");
@@ -95,7 +103,8 @@ public class main extends JFrame{
 	static JRadioButton loc_F__ = new JRadioButton("오거리, 제기동");
 	static JRadioButton loc_G__ = new JRadioButton("학교 안");
 
-	JPanel newpanel3 = new JPanel();
+	JPanel newpanel3 = new Mypanel3();
+	JLabel categoryLabel__ = new JLabel("<종류>");
 	ButtonGroup group3 = new ButtonGroup();
 	static JRadioButton cat_A__ = new JRadioButton("양식");
 	static JRadioButton cat_B__ = new JRadioButton("한식");
@@ -106,8 +115,11 @@ public class main extends JFrame{
 	static JRadioButton cat_G__ = new JRadioButton("기타 국가");
 	static JTextField newResName = new JTextField(10);
 	static JButton addResbtn = new JButton("추가하기");
-
-	static JButton backbtn1 = new JButton("뒤로");
+	
+	JPanel newpanel4 = new Mypanel3();
+	JPanel newpanel0 = new Mypanel3();
+	
+	static JButton backbtn1 = new JButton("  뒤로  ");
 	static JButton backbtn2 = new JButton("뒤로");
 	static JButton backbtn3 = new JButton("뒤로");
 
@@ -116,28 +128,42 @@ public class main extends JFrame{
 		setTitle("밥약해요!");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Container contentPane = getContentPane();
-		mainpanel.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 200));
-
-
+		mainpanel.setLayout(new BorderLayout(270, 170));
+		
 		//main panel 코드
+		mainpanel1.setLayout(new GridLayout(3,1));
 		JButton recommandbtn = new JButton("추천해드릴게요!");
 		JButton listbtn = new JButton("맛집이 뭐가 있지?");
 
 		listbtn.addActionListener(new mainActionListener(contentPane, mainpanel, listpanel));
 		recommandbtn.addActionListener(new mainActionListener(contentPane, mainpanel, recommandpanel));
 
-		mainpanel.add(recommandbtn);
-		mainpanel.add(listbtn);
+		recommandbtn.setBackground(Color.LIGHT_GRAY);
+		recommandbtn.setFont(font);
+		listbtn.setBackground(Color.LIGHT_GRAY);
+		listbtn.setFont(font);
+		mainpanel1.add(recommandbtn);
+		mainpanel1.add(new Mypanel3());
+		mainpanel1.add(listbtn);
+		mainpanel.add(new Mypanel3(), BorderLayout.NORTH);
+		mainpanel.add(new Mypanel3(), BorderLayout.EAST);
+		mainpanel.add(new Mypanel3(), BorderLayout.WEST);
+		mainpanel.add(mainpanel1, BorderLayout.CENTER);
+		mainpanel.add(new Mypanel3(), BorderLayout.SOUTH);
 
 		//list panel 코드
-		listpanel.setLayout(new GridLayout(1, 2));
+		listpanel.setLayout(new GridLayout(1, 6));
 		listActionListener boxItemListener = new listActionListener();
-
+		
+		listpanel1.setLayout(new GridLayout(15, 1));
+		listpanel2.setLayout(new GridLayout(16, 1));
+		
 		under5000.addItemListener(boxItemListener);
 		under7500.addItemListener(boxItemListener);
 		under10000.addItemListener(boxItemListener);
 		under15000.addItemListener(boxItemListener);
 		over15000.addItemListener(boxItemListener);
+		listpanel1.add(option);
 		listpanel1.add(priceLabel);
 		listpanel1.add(under5000);
 		listpanel1.add(under7500);
@@ -152,15 +178,15 @@ public class main extends JFrame{
 		loc_E.addItemListener(boxItemListener);
 		loc_F.addItemListener(boxItemListener);
 		loc_G.addItemListener(boxItemListener);
-		listpanel2.add(locationLabel);
-		listpanel2.add(loc_A);
-		listpanel2.add(loc_B);
-		listpanel2.add(loc_C);
-		listpanel2.add(loc_D);
-		listpanel2.add(loc_E);
-		listpanel2.add(loc_F);
-		listpanel2.add(loc_G);
-
+		listpanel1.add(locationLabel);
+		listpanel1.add(loc_A);
+		listpanel1.add(loc_B);
+		listpanel1.add(loc_C);
+		listpanel1.add(loc_D);
+		listpanel1.add(loc_E);
+		listpanel1.add(loc_F);
+		listpanel1.add(loc_G);
+		
 		cat_A.addItemListener(boxItemListener);
 		cat_B.addItemListener(boxItemListener);
 		cat_C.addItemListener(boxItemListener);
@@ -168,38 +194,49 @@ public class main extends JFrame{
 		cat_E.addItemListener(boxItemListener);
 		cat_F.addItemListener(boxItemListener);
 		cat_G.addItemListener(boxItemListener);
-		listpanel3.add(categoryLabel);
-		listpanel3.add(cat_A);
-		listpanel3.add(cat_B);
-		listpanel3.add(cat_C);
-		listpanel3.add(cat_D);
-		listpanel3.add(cat_E);
-		listpanel3.add(cat_F);
-		listpanel3.add(cat_G);
-
+		listpanel2.add(new Mypanel3());
+		listpanel2.add(categoryLabel);
+		listpanel2.add(cat_A);
+		listpanel2.add(cat_B);
+		listpanel2.add(cat_C);
+		listpanel2.add(cat_D);
+		listpanel2.add(cat_E);
+		listpanel2.add(cat_F);
+		listpanel2.add(cat_G);
+		
+		listpanel3.setLayout(new BorderLayout(20, 220));
 		JButton addRestaurantBtn = new JButton("식당 추가");
+		addRestaurantBtn.setBackground(Color.LIGHT_GRAY);
+		addRestaurantBtn.setFont(font);
 		addRestaurantBtn.addActionListener(new mainActionListener(contentPane, listpanel, newpanel));
+		listpanel3.add(new Mypanel3(), BorderLayout.NORTH);
+		listpanel3.add(new Mypanel3(), BorderLayout.WEST);
+		listpanel3.add(new Mypanel3(), BorderLayout.EAST);
+		listpanel3.add(addRestaurantBtn, BorderLayout.CENTER);
+		listpanel3.add(backbtn1, BorderLayout.SOUTH);
+		
 
-		JList<String> resultList = new JList<String>();
 		backbtn1.addActionListener(new mainActionListener(contentPane, listpanel, mainpanel));
+		backbtn1.setBackground(Color.LIGHT_GRAY);
+		backbtn1.setFont(font);
 
-		listpanel.add(option);
 		listpanel.add(listpanel1);
 		listpanel.add(listpanel2);
-		listpanel.add(listpanel3);
 		listpanel.add(new JScrollPane(listResult));
-		listpanel.add(addRestaurantBtn);
-		listpanel.add(resultList);
-		listpanel.add(backbtn1);
+		listpanel.add(listpanel3);
+		
 
 
 		//recommand panel 코드
-
+		recommandpanel.setLayout(new GridLayout(9,1));
 		recommandActionListener recommandItemListener = new recommandActionListener();
+		recommandResult.setHorizontalAlignment((int)JTextField.CENTER_ALIGNMENT);
+		getRecommandbtn.setBackground(Color.LIGHT_GRAY);
+		getRecommandbtn.setFont(font);
 
 		under5000_.addItemListener(recommandItemListener);
 		under7500_.addItemListener(recommandItemListener);
-		under10000_.addItemListener(recommandItemListener);
+		under10000_.addItemListener(recommandItemListener); 
 		under15000_.addItemListener(recommandItemListener);
 		over15000_.addItemListener(recommandItemListener);
 
@@ -221,7 +258,9 @@ public class main extends JFrame{
 
 		getRecommandbtn.addActionListener(recommandItemListener);
 		JLabel option_ =  new JLabel("<추천 조건>");
-
+		
+		recommandpanel0.add(option_);
+		
 		recommandpanel1.add(priceLabel_);
 		recommandpanel1.add(under5000_);
 		recommandpanel1.add(under7500_);
@@ -247,22 +286,27 @@ public class main extends JFrame{
 		recommandpanel3.add(cat_E_);
 		recommandpanel3.add(cat_F_);
 		recommandpanel3.add(cat_G_);
+		
+		recommandpanel4.add(getRecommandbtn);
+		recommandpanel4.add(backbtn2);
 
-
-		JList<String> resultRecommand = new JList<String>();
 		backbtn2.addActionListener(new mainActionListener(contentPane, recommandpanel, mainpanel));
-
-		recommandpanel.add(option_);
+		
+		backbtn2.setBackground(Color.LIGHT_GRAY);
+		backbtn2.setFont(font);
+		
+		recommandpanel.add(recommandpanel0);
 		recommandpanel.add(recommandpanel1);
 		recommandpanel.add(recommandpanel2);
 		recommandpanel.add(recommandpanel3);
-		recommandpanel.add(resultRecommand);
 		recommandpanel.add(recommandResult);
-		recommandpanel.add(getRecommandbtn);
-		recommandpanel.add(backbtn2);
+		recommandpanel.add(new Mypanel3());
+		recommandpanel.add(recommandpanel4);
 
 		//new panel
-
+		
+		newpanel.setLayout(new GridLayout(9,1));
+		
 		group1.add(under5000__);group1.add(under7500__);group1.add(under10000__);group1.add(under15000__);group1.add(over15000__);
 		group2.add(loc_A__);group2.add(loc_B__);group2.add(loc_C__);group2.add(loc_D__);group2.add(loc_E__);group2.add(loc_F__);group2.add(loc_G__);
 		group3.add(cat_A__);group3.add(cat_B__);group3.add(cat_C__);group3.add(cat_D__);group3.add(cat_E__);group3.add(cat_F__);group3.add(cat_G__);
@@ -292,15 +336,18 @@ public class main extends JFrame{
 		cat_G__.addItemListener(newItemListener);
 
 		addResbtn.addActionListener(new listActionListener2());
-
-
-		newpanel.add(newResName);
+		
+		addResbtn.setBackground(Color.LIGHT_GRAY);
+		addResbtn.setFont(font);
+		
+		newpanel1.add(priceLabel__);
 		newpanel1.add(under5000__);
 		newpanel1.add(under7500__);
 		newpanel1.add(under10000__);
 		newpanel1.add(under15000__);
 		newpanel1.add(over15000__);
 
+		newpanel2.add(locationLabel__);
 		newpanel2.add(loc_A__);
 		newpanel2.add(loc_B__);
 		newpanel2.add(loc_C__);
@@ -308,7 +355,8 @@ public class main extends JFrame{
 		newpanel2.add(loc_E__);
 		newpanel2.add(loc_F__);
 		newpanel2.add(loc_G__);
-
+		
+		newpanel3.add(categoryLabel__);
 		newpanel3.add(cat_A__);
 		newpanel3.add(cat_B__);
 		newpanel3.add(cat_C__);
@@ -316,14 +364,25 @@ public class main extends JFrame{
 		newpanel3.add(cat_E__);
 		newpanel3.add(cat_F__);
 		newpanel3.add(cat_G__);
+		
+		newpanel4.add(addResbtn);
+		
+		backbtn3.setBackground(Color.LIGHT_GRAY);
+		backbtn3.setFont(font);
+		newpanel4.add(backbtn3);
+		
+		newpanel0.add(new JLabel("새 식당 이름 : "));
+		newpanel0.add(newResName);
 
 		backbtn3.addActionListener(new mainActionListener(contentPane, newpanel, listpanel));
-
+		
+		newpanel.add(new JLabel("전반적인 가격, 위치, 카테고리를 선택하고 식당이름을 쓴 후 추가하기를 눌러주세요."));
 		newpanel.add(newpanel1);
 		newpanel.add(newpanel2);
 		newpanel.add(newpanel3);
-		newpanel.add(addResbtn);
-		newpanel.add(backbtn3);
+		newpanel.add(newpanel0);
+		newpanel.add(new Mypanel3());
+		newpanel.add(newpanel4);
 
 
 		//시작화면 기본 설정
@@ -332,6 +391,33 @@ public class main extends JFrame{
 		setVisible(true);
 	}
 
+	class Mypanel1 extends JPanel{
+		ImageIcon icon = new ImageIcon("images/main.jpg");
+		Image mainimg = icon.getImage();
+		
+		public void paintComponent(Graphics g) {
+			super.paintComponent(g);
+			g.drawImage(mainimg, 0, 0, getWidth(), getHeight(), this);
+		}
+	}
+	class Mypanel2 extends JPanel{
+		ImageIcon icon = new ImageIcon("images/panel.jpg");
+		Image mainimg = icon.getImage();
+		
+		public void paintComponent(Graphics g) {
+			super.paintComponent(g);
+			g.drawImage(mainimg, 0, 0, getWidth(), getHeight(), this);
+		}
+	}
+	class Mypanel3 extends JPanel{
+		ImageIcon icon = new ImageIcon("images/normal.jpg");
+		Image mainimg = icon.getImage();
+		
+		public void paintComponent(Graphics g) {
+			super.paintComponent(g);
+			g.drawImage(mainimg, 0, 0, getWidth(), getHeight(), this);
+		}
+	}
 
 	public static void main(String[] args) {
 		//실행 코드 구현
